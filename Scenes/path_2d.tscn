@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://culptn4u2qewq"]
+
+[ext_resource type="Script" path="res://Scripts/spawner.gd" id="1_lec2b"]
+
+[sub_resource type="Curve2D" id="Curve2D_3og2m"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1943.23, -95.7226, 0, 0, 0, 0, 1971.2, 1164.79, 0, 0, 0, 0, 796.801, 1164.79)
+}
+point_count = 3
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(-1498.12, 0)
+scale = Vector2(1.78729, 0.992452)
+curve = SubResource("Curve2D_3og2m")
+script = ExtResource("1_lec2b")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(1943.81, -95.7355)
+rotation = 1.54861
+scale = Vector2(2.89414, -98.2776)
+v_offset = -0.58
+cubic_interp = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

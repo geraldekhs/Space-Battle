@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdvl1b6wc3dev"
+path="res://.godot/imported/y2mate.com - Arrival Soundtrack  On The Nature Of Daylight by Max Richter.mp3-6e26aa52af555ff76fd3d166b444f595.mp3str"
+
+[deps]
+
+source_file="res://Sounds/y2mate.com - Arrival Soundtrack  On The Nature Of Daylight by Max Richter.mp3"
+dest_files=["res://.godot/imported/y2mate.com - Arrival Soundtrack  On The Nature Of Daylight by Max Richter.mp3-6e26aa52af555ff76fd3d166b444f595.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
