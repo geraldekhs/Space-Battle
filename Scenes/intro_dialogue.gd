@@ -11,6 +11,6 @@ func _process(delta: float) -> void:
 	if $RichTextLabel.visible_ratio != 1:
 		$RichTextLabel.visible_ratio += delta*0.8
 
+
 func _on_next_button_pressed() -> void:
-	
 	start.emit()

@@ -1,9 +1,6 @@
 extends Path2D
 #references enemy scene
 @export var enemy_scene:PackedScene
-
-#@onready var enemy=$Sprite2D
-
 #spawns enemies on path?
 @onready var spawn_location=$PathFollow2D
 @onready var mob_timer=$Timer

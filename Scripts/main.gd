@@ -50,8 +50,10 @@ func _on_control_start() -> void:
 	start_menu.visible = false
 	intro_dialogue.visible = true
 
+
 #goes to scene after intro dialogue
 func _on_intro_dialogue_start() -> void:
+	print('abcd')
 	add_child(stage)
 	intro_dialogue.visible = false
 	stage.visible = true

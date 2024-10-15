@@ -12,10 +12,10 @@ script = ExtResource("1_1tr5p")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="IntroDialogue" parent="." instance=ExtResource("4_ktih6")]
-
 [node name="Control" parent="." instance=ExtResource("3_hbxfv")]
 
+[node name="IntroDialogue" parent="." instance=ExtResource("4_ktih6")]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="start" from="IntroDialogue" to="." method="_on_intro_dialogue_start"]
 [connection signal="start" from="Control" to="." method="_on_control_start"]
+[connection signal="start" from="IntroDialogue" to="." method="_on_intro_dialogue_start"]
