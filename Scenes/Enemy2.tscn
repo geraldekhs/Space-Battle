@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://mdfiw8q5kw0n"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_hkpef"]
+[ext_resource type="Texture2D" uid="uid://e086htcd8gde" path="res://Assets/Asteroids/med-b.png" id="2_5vdq6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tbhlb"]
+radius = 30.1496
+
+[node name="Node2D" type="RigidBody2D"]
+position = Vector2(-1, 4)
+gravity_scale = 0.0
+script = ExtResource("1_hkpef")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.999999, -6.95017)
+scale = Vector2(3.2375, 3.10498)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, -6.35606)
+scale = Vector2(2.37179, 2.25225)
+texture = ExtResource("2_5vdq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -9)
+shape = SubResource("CircleShape2D_tbhlb")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

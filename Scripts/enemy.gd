@@ -1,8 +1,14 @@
 extends RigidBody2D
 
+var big_asteroid = preload('res://Assets/Asteroids/big-b.png')
+var med_asteroid = preload('res://Assets/Asteroids/med-b.png')
+var texture_array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	texture_array = [big_asteroid, med_asteroid];
+	$Sprite2D.texture = texture_array[randi_range(0,1)];
+	
 	pass # Replace with function body.
 
 

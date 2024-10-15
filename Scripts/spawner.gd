@@ -1,13 +1,13 @@
 extends Path2D
 #references enemy scene
 @export var enemy_scene:PackedScene
-#spawns enemies on path?
 @onready var spawn_location=$PathFollow2D
 @onready var mob_timer=$Timer
 var asteroid_spawn_delay = 2
 var asteroid_field_delay = 7
-var spawn_rate = 0
+var asteroids_stop = 20
 
+var spawn_rate = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,11 +21,15 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	asteroid_spawn_delay-=1
 	asteroid_field_delay-=1
+	asteroids_stop-=1
 	
+	#asteroids stop spawning after certain period of time
 	if asteroid_spawn_delay<0:
 		spawn_rate = 2;
 	if asteroid_field_delay<0:
 		spawn_rate = 10;
+	if asteroids_stop<0:
+		spawn_rate=0
 		
 	for i in range(spawn_rate):
 		var enemy = enemy_scene.instantiate()

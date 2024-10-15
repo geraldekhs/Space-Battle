@@ -1,28 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnbnk7gnkee36"]
 
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_ckj47"]
-[ext_resource type="Texture2D" uid="uid://ckx2dndgy3upr" path="res://Assets/Asteroids/big-a.png" id="2_8saw5"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_y4472"]
+[ext_resource type="Texture2D" uid="uid://ckx2dndgy3upr" path="res://Assets/Asteroids/big-a.png" id="2_4xn7u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lxwqr"]
-radius = 40.1061
+radius = 55.5203
 
 [node name="Node2D" type="RigidBody2D"]
 position = Vector2(-1, 4)
 gravity_scale = 0.0
-script = ExtResource("1_ckj47")
+script = ExtResource("1_y4472")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0.75, -9.25)
 scale = Vector2(4.475, 4.775)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(0.5, -6.35606)
 scale = Vector2(2.37179, 2.25225)
-texture = ExtResource("2_8saw5")
+texture = ExtResource("2_4xn7u")
 
 [node name="MedCollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0.5, -3.5)
 shape = SubResource("CircleShape2D_lxwqr")
 
