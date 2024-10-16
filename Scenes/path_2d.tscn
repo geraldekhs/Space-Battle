@@ -1,22 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://culptn4u2qewq"]
+[gd_scene load_steps=6 format=3 uid="uid://culptn4u2qewq"]
 
 [ext_resource type="Script" path="res://Scripts/spawner.gd" id="1_lec2b"]
+[ext_resource type="FontFile" uid="uid://df4diksoae2qh" path="res://Fonts/C&C Red Alert [INET].ttf" id="2_djc0w"]
+[ext_resource type="AudioStream" uid="uid://xtuk2thf31v1" path="res://Sounds/Military Alarm.mp3" id="3_60d2k"]
 
 [sub_resource type="Curve2D" id="Curve2D_3og2m"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1943.23, -95.7226, 0, 0, 0, 0, 1971.2, 1164.79, 0, 0, 0, 0, 796.801, 1164.79)
+"points": PackedVector2Array(0, 0, 0, 0, 2441, -242, 0, 0, 0, 0, 2445, 984, 0, 0, 0, 0, 398, 939)
 }
 point_count = 3
 
+[sub_resource type="Theme" id="Theme_64h4m"]
+
 [node name="Path2D" type="Path2D"]
-position = Vector2(-1498.12, 0)
-scale = Vector2(1.78729, 0.992452)
+position = Vector2(-452, 175)
 curve = SubResource("Curve2D_3og2m")
 script = ExtResource("1_lec2b")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(1943.81, -95.7355)
-rotation = 1.54861
+position = Vector2(2441.58, -242.002)
+rotation = 1.56753
 scale = Vector2(2.89414, -98.2776)
 v_offset = -0.58
 cubic_interp = false
@@ -24,5 +27,28 @@ cubic_interp = false
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.75
 autostart = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 288.0
+offset_top = -91.0
+offset_right = 2580.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_64h4m")
+theme_override_fonts/normal_font = ExtResource("2_djc0w")
+theme_override_font_sizes/mono_font_size = 100
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[center][pulse color=#FF0000 freq=2.0]APPROACHING ASTEROID FIELD[/pulse]"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_60d2k")
+volume_db = 15.516
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

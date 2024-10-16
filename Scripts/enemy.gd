@@ -15,6 +15,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+	#transfer spwaner gd here, use _process to modify direction of enemy
+
 
 #queues node to be deleted at end of current frame
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
