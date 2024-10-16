@@ -1,28 +1,38 @@
 extends Node2D
-
-@onready var goto_signal=$spawner
-#$Spawner
+@onready var mob_timer=$Timer
+@onready var blackhole=$BlackHole2DNode
+var timer = 0
+var timer2 = 0
 
 func _ready() -> void:
-	#print(goto_signal)
-	#$spawner.visible = true
-	#upon receiving signal goto_stage2 from spawner.gd, run start_stage2
-	#visible = false
-	#anim.play('default')
+	remove_child(blackhole)
 	pass
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	goto_signal.connect("goto_stage2",start_stage2)
-
 	pass
 
+	
 func _on_timer_timeout() -> void:
-	pass # Replace with function body.
-#
-func start_stage2() -> void:
-	print('yes')
-	$BlackHole2DNode.visible = true
-	#$Black
-	pass
+	#remove_child(blackhole)
+
+	timer+=1
+	timer2+=1
+	#if timer>3:
+	if timer>30:
+		add_child(blackhole)
+		blackhole.visible=true
+
+func _on_player_velo(velocity_x: Variant) -> void:
+	if get_node_or_null("BlackHole2DNode"):
+		if $BlackHole2DNode.visible == true:
+			#if timer>3:
+			if timer<35:
+				$BlackHole2DNode.move_local_x(-4-velocity_x/200)
+			#
+		#if timer >10:
+			#$BlackHole2DNode.move_local_x(-velocity_x/50)
+			#
+	#print(timer)
+	
+
+			

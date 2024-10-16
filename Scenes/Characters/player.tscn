@@ -1,13 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://cx40vgtenheaa"]
+[gd_scene load_steps=20 format=3 uid="uid://cx40vgtenheaa"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_vquch"]
 [ext_resource type="AudioStream" uid="uid://brleofndrkjje" path="res://Sounds/hit.wav" id="2_j1b6k"]
 [ext_resource type="Texture2D" uid="uid://bpq7ffdkcjroo" path="res://Assets/Double Thruster Ship/3.png" id="3_83m13"]
+[ext_resource type="Texture2D" uid="uid://b0iyjqggssr7a" path="res://Assets/Explosion/1.png" id="3_wrac8"]
 [ext_resource type="Texture2D" uid="uid://bqaaevfcmhhuh" path="res://Assets/Double Thruster Ship/4.png" id="4_3d7vl"]
+[ext_resource type="Texture2D" uid="uid://bsyuv4hcek0he" path="res://Assets/Explosion/2.png" id="4_dk67t"]
+[ext_resource type="Texture2D" uid="uid://dkkegfkmnsy3t" path="res://Assets/Explosion/3.png" id="5_c8wq6"]
 [ext_resource type="Texture2D" uid="uid://ck0o8f3mjh8mx" path="res://Assets/Double Thruster Ship/5.png" id="5_n50cn"]
+[ext_resource type="Texture2D" uid="uid://brnsbyqvishbl" path="res://Assets/Explosion/4.png" id="6_4kptf"]
 [ext_resource type="Texture2D" uid="uid://c6xox3pcs8duc" path="res://Assets/Double Thruster Ship/6.png" id="6_r1vy7"]
+[ext_resource type="Texture2D" uid="uid://bn4b34ws3s21l" path="res://Assets/Explosion/5.png" id="7_42fq7"]
 [ext_resource type="Texture2D" uid="uid://bfw8hmkxjif5q" path="res://Assets/Double Thruster Ship/1.png" id="7_lmpkj"]
 [ext_resource type="Texture2D" uid="uid://djl7t647rb1qe" path="res://Assets/Double Thruster Ship/2.png" id="8_0sqo1"]
+[ext_resource type="Texture2D" uid="uid://btj277dm6qf6y" path="res://Assets/Explosion/6.png" id="8_oouc8"]
+[ext_resource type="Texture2D" uid="uid://cql1imgxn5m63" path="res://Assets/Explosion/7.png" id="9_eoyho"]
+[ext_resource type="Texture2D" uid="uid://iai7kv4k73iu" path="res://Assets/Explosion/8.png" id="10_75tl1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5vm1"]
 size = Vector2(126.801, 72.0001)
@@ -17,6 +25,38 @@ size = Vector2(126.5, 72)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lvmm3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wrac8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dk67t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c8wq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4kptf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_42fq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_oouc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eoyho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_75tl1")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_83m13")
@@ -80,15 +120,22 @@ shape = SubResource("RectangleShape2D_2auau")
 stream = ExtResource("2_j1b6k")
 
 [node name="AnimatedPlayerSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-9, 8)
-scale = Vector2(2.17904, 2.26573)
+position = Vector2(-1.86464, 15.4192)
+scale = Vector2(2.40202, 2.49758)
 sprite_frames = SubResource("SpriteFrames_lvmm3")
-animation = &"startup"
-frame = 2
-frame_progress = 0.126804
+animation = &"explosion"
+frame = 7
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedPlayerSprite"]
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area2D" to="." method="_on_area_2d_body_shape_exited"]
 [connection signal="animation_changed" from="AnimatedPlayerSprite" to="." method="_on_animated_player_sprite_animation_changed"]
 [connection signal="animation_finished" from="AnimatedPlayerSprite" to="." method="_on_animated_player_sprite_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

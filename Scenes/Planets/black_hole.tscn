@@ -1,7 +1,9 @@
-[gd_scene load_steps=85 format=3 uid="uid://8ftvcws01ou3"]
+[gd_scene load_steps=86 format=3 uid="uid://8ftvcws01ou3"]
 
 [ext_resource type="Script" path="res://Scenes/Planets/black_hole.gd" id="1_sojhf"]
 [ext_resource type="Texture2D" uid="uid://bja0rvge44kmm" path="res://Assets/Celestial Bodies/black_hole_80frames.png" id="2_1mhqb"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l8pu5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afmub"]
 atlas = ExtResource("2_1mhqb")
@@ -571,10 +573,11 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lpud4"]
-radius = 1299.66
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_njh2e"]
+radius = 1158.0
+height = 2730.0
 
-[node name="BlackHole2DNode" type="Node2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_sojhf")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
@@ -582,6 +585,7 @@ position = Vector2(0.75, -9.25)
 scale = Vector2(4.475, 4.775)
 
 [node name="BlackHoleSprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_l8pu5")
 position = Vector2(-1230, -1199)
 scale = Vector2(12.225, 12.225)
 sprite_frames = SubResource("SpriteFrames_2qsac")
@@ -589,9 +593,6 @@ frame = 51
 frame_progress = 0.164147
 centered = false
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(6, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_lpud4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 2)
+shape = SubResource("CapsuleShape2D_njh2e")

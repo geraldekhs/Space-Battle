@@ -935,6 +935,7 @@ script = ExtResource("1_m3r0l")
 position = Vector2(950, 510)
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="spawner" parent="." instance=ExtResource("3_f6dvo")]
 enemy_scene = ExtResource("4_2hy27")
@@ -963,8 +964,9 @@ position = Vector2(411, 551)
 scale = Vector2(17.575, 17.575)
 
 [node name="BlackHole2DNode" parent="." instance=ExtResource("9_brhf8")]
-position = Vector2(2505, 595)
+position = Vector2(2388, 557)
 
+[connection signal="velo" from="player" to="." method="_on_player_velo"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="goto_stage2" from="spawner" to="." method="_on_spawner_goto_stage_2"]
 [connection signal="goto_stage2" from="spawner" to="BlackHole2DNode" method="_on_spawner_goto_stage_2"]

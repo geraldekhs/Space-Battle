@@ -3,9 +3,14 @@ extends Path2D
 @export var enemy_scene:PackedScene
 @onready var spawn_location=$PathFollow2D
 @onready var mob_timer=$Timer
-var asteroid_spawn_delay = 2
-var asteroid_field_delay = 13
-var asteroids_stop = 23
+
+
+var asteroid_spawn_delay = 0
+var asteroid_field_delay = 0
+var asteroids_stop = 0
+#var asteroid_spawn_delay = 2
+#var asteroid_field_delay = 13
+#var asteroids_stop = 23
 var spawn_rate = 0
 signal goto_stage2
 
@@ -20,25 +25,34 @@ func _process(delta: float) -> void:
 	pass
 	
 func _on_timer_timeout() -> void:
-	asteroid_spawn_delay-=1
-	asteroid_field_delay-=1
-	asteroids_stop-=1
+	#mob_timer+=1
+
+	asteroid_spawn_delay+=1
+	asteroid_field_delay+=1
+	asteroids_stop+=1
 	
+	
+	#
+	#
+	#asteroid_spawn_delay-=1
+	#asteroid_field_delay-=1
+	#asteroids_stop-=1
+	#
 	#asteroids stop spawning after certain period of time
-	if asteroid_spawn_delay<0:
+	if asteroid_spawn_delay>2:
 		spawn_rate = 2;
-	if asteroid_field_delay<7:
+	if asteroid_field_delay>14:
 		$RichTextLabel2.visible = true
 		$AudioStreamPlayer.play()
-		
-	if asteroid_field_delay<0:
+	if asteroid_field_delay>23:
 		$RichTextLabel2.visible = false
 		spawn_rate = 15;
 		$AudioStreamPlayer.stop()
-	if asteroids_stop<0:
+	if asteroids_stop>30:
 		spawn_rate=0
-		emit_signal('goto_stage2')
-		print('yes')
+		goto_stage2.emit()
+		#emit_signal('goto_stage2')
+		#print('yes')
 		
 
 
@@ -58,7 +72,7 @@ func _on_timer_timeout() -> void:
 		# Randomize spawn direction
 		var direction = spawn_location.rotation + randf_range(-PI, PI)
 		
-		print(direction)           
+		#print(direction)           
 		
 		enemy.rotation = direction
 
