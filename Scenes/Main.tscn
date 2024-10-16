@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkpmeqdc8xgkk"]
+[gd_scene load_steps=6 format=3 uid="uid://bkpmeqdc8xgkk"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1tr5p"]
 [ext_resource type="PackedScene" uid="uid://cbgwiw1sltog0" path="res://Scenes/Stages/stage1.tscn" id="2_qaq85"]
 [ext_resource type="PackedScene" uid="uid://c8d1u0x44ebl0" path="res://Scenes/Stages/start_menu.tscn" id="3_hbxfv"]
 [ext_resource type="PackedScene" uid="uid://bm1iyhn648tr" path="res://Scenes/intro_dialogue.tscn" id="4_ktih6"]
+[ext_resource type="PackedScene" uid="uid://kc8cqkxx4pfa" path="res://Scenes/Stages/stage2.tscn" id="5_3diu6"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_1tr5p")
@@ -15,6 +16,8 @@ script = ExtResource("1_1tr5p")
 [node name="start_menu" parent="." instance=ExtResource("3_hbxfv")]
 
 [node name="intro_dialogue" parent="." instance=ExtResource("4_ktih6")]
+
+[node name="stage2" parent="." instance=ExtResource("5_3diu6")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="start" from="start_menu" to="." method="_on_control_start"]

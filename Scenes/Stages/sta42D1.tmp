@@ -936,7 +936,7 @@ position = Vector2(950, 510)
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="spawner" parent="." instance=ExtResource("3_f6dvo")]
+[node name="Spawner" parent="." instance=ExtResource("3_f6dvo")]
 enemy_scene = ExtResource("4_2hy27")
 
 [node name="warning_sound" type="AudioStreamPlayer2D" parent="."]
@@ -966,7 +966,7 @@ scale = Vector2(17.575, 17.575)
 position = Vector2(2505, 595)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="goto_stage2" from="spawner" to="." method="_on_spawner_goto_stage_2"]
-[connection signal="goto_stage2" from="spawner" to="BlackHole2DNode" method="_on_spawner_goto_stage_2"]
+[connection signal="goto_stage2" from="Spawner" to="." method="_on_spawner_goto_stage_2"]
+[connection signal="goto_stage2" from="Spawner" to="BlackHole2DNode" method="_on_spawner_goto_stage_2"]
 [connection signal="screen_exited" from="Earth/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_exited" from="Earth/VisibleOnScreenNotifier2D" to="Earth" method="_on_visible_on_screen_notifier_2d_screen_exited"]

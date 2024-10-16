@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dihtf07rlmema"]
+[gd_scene load_steps=2 format=3 uid="uid://kc8cqkxx4pfa"]
 
-[ext_resource type="PackedScene" uid="uid://cbgwiw1sltog0" path="res://Scenes/Stages/stage1.tscn" id="1_wosdl"]
+[ext_resource type="Script" path="res://Scripts/stage.gd" id="1_83fpx"]
 
-[node name="Node2D" instance=ExtResource("1_wosdl")]
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_83fpx")

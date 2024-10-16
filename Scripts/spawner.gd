@@ -38,6 +38,7 @@ func _on_timer_timeout() -> void:
 	if asteroids_stop<0:
 		spawn_rate=0
 		emit_signal('goto_stage2')
+		print('yes')
 		
 
 

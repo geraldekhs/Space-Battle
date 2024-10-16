@@ -1,9 +1,12 @@
 extends Node2D
 
-@onready var anim = $Node2D/EarthSprite
-#var timing = 10
-# Called when the node enters the scene tree for the first time.
+@onready var goto_signal=$spawner
+#$Spawner
+
 func _ready() -> void:
+	#print(goto_signal)
+	#$spawner.visible = true
+	#upon receiving signal goto_stage2 from spawner.gd, run start_stage2
 	#visible = false
 	#anim.play('default')
 	pass
@@ -11,15 +14,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	anim.play('default')
+	goto_signal.connect("goto_stage2",start_stage2)
 
-	#timing-=1
-	#
-	#if timing<0:
-		#visible = true
 	pass
-	
 
 func _on_timer_timeout() -> void:
-	
 	pass # Replace with function body.
+#
+func start_stage2() -> void:
+	print('yes')
+	$BlackHole2DNode.visible = true
+	#$Black
+	pass

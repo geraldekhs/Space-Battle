@@ -12,7 +12,7 @@ point_count = 3
 
 [sub_resource type="Theme" id="Theme_64h4m"]
 
-[node name="Path2D" type="Path2D"]
+[node name="spawner" type="Path2D"]
 position = Vector2(-452, 175)
 curve = SubResource("Curve2D_3og2m")
 script = ExtResource("1_lec2b")
