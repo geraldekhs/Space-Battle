@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqfk2eq558rq"
+path="res://.godot/imported/Submarine Creaking.mp3-ae9001c4a5d71d31c82db7d7d71b519d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Submarine Creaking.mp3"
+dest_files=["res://.godot/imported/Submarine Creaking.mp3-ae9001c4a5d71d31c82db7d7d71b519d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

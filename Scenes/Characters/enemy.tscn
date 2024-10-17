@@ -24,4 +24,6 @@ texture = ExtResource("2_4xn7u")
 position = Vector2(0.5, -3.5)
 shape = SubResource("CircleShape2D_lxwqr")
 
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

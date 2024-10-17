@@ -1,13 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkpmeqdc8xgkk"]
+[gd_scene load_steps=8 format=3 uid="uid://bkpmeqdc8xgkk"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_1tr5p"]
 [ext_resource type="PackedScene" uid="uid://cbgwiw1sltog0" path="res://Scenes/Stages/stage1.tscn" id="2_qaq85"]
 [ext_resource type="PackedScene" uid="uid://c8d1u0x44ebl0" path="res://Scenes/Stages/start_menu.tscn" id="3_hbxfv"]
 [ext_resource type="PackedScene" uid="uid://bm1iyhn648tr" path="res://Scenes/intro_dialogue.tscn" id="4_ktih6"]
-[ext_resource type="PackedScene" uid="uid://kc8cqkxx4pfa" path="res://Scenes/Stages/stage2.tscn" id="5_3diu6"]
+[ext_resource type="PackedScene" uid="uid://cafhqtqcxnhco" path="res://Scenes/Stages/stage2.tscn" id="5_3diu6"]
+[ext_resource type="FontFile" uid="uid://df4diksoae2qh" path="res://Fonts/C&C Red Alert [INET].ttf" id="6_0rppk"]
+[ext_resource type="PackedScene" uid="uid://bfhlrib2do5h1" path="res://Scenes/Planets/new_planet.tscn" id="7_fqm70"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_1tr5p")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="try_again_button" type="Button" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.301
+anchor_bottom = 0.195
+offset_left = 4.0
+offset_top = 470.0
+offset_right = 1915.96
+offset_bottom = 570.2
+theme_override_fonts/font = ExtResource("6_0rppk")
+theme_override_font_sizes/font_size = 100
+text = "TRY AGAIN? "
 
 [node name="stage1" parent="." instance=ExtResource("2_qaq85")]
 
@@ -19,6 +41,35 @@ script = ExtResource("1_1tr5p")
 
 [node name="stage2" parent="." instance=ExtResource("5_3diu6")]
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 244.0
+offset_top = 418.0
+offset_right = 1768.0
+offset_bottom = 758.0
+theme_override_fonts/normal_font = ExtResource("6_0rppk")
+theme_override_font_sizes/normal_font_size = 200
+bbcode_enabled = true
+text = "[wave amp=50.0] To be continued... "
+fit_content = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("7_fqm70")]
+position = Vector2(2577, 560)
+
+[node name="Loading" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 185.0
+offset_top = 416.0
+offset_right = 1716.0
+offset_bottom = 616.0
+theme_override_fonts/normal_font = ExtResource("6_0rppk")
+theme_override_font_sizes/normal_font_size = 200
+bbcode_enabled = true
+text = "[wave amp=50.0][center]Loading..."
+fit_content = true
+
+[connection signal="pressed" from="Control/try_again_button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/try_again_button" to="." method="_on_try_again_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="start" from="start_menu" to="." method="_on_control_start"]
 [connection signal="start" from="intro_dialogue" to="." method="_on_intro_dialogue_start"]

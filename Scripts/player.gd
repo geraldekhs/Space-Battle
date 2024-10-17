@@ -8,6 +8,9 @@ var timer = 0
 var inside_area = false
 var explosion = false
 var explosion_played = false
+var additional_time = 0
+var timer2 = 0
+var game_timer = 0
 
 # Flag to track if default animation has played
 var default_animation_played = false
@@ -53,7 +56,9 @@ func _physics_process(delta: float) -> void:
 		timer += delta  # Increment by the delta time
 	else:
 		timer = 0  # Reset the timer if not inside the area
-		
+	
+	#print(timer)
+	
 	if timer > 4.0:
 		explosion = true
 	#
@@ -84,19 +89,37 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	print(body_rid)
-	if '4664334483457' in str(body_rid):
+	
+	if int(str(body_rid)) < 10000000000000:
 		slow = true
-	inside_area = true
+		inside_area = true
+		$"../AudioStreamPlayer".play()
+	#if '4711579123713' in str(body_rid):
+		#slow = true
+		#inside_area = true
+		#$"../AudioStreamPlayer".play()
 #func _on_area_2d_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	#if '4561255268353' in str(body_rid):
 		#slow = false
 
 
 func _on_timer_timeout() -> void:
-	if timer>4.0 and not explosion_played:
+	game_timer+=1
+	#additional_time = 30
+	
+	if timer>5.0 and not explosion_played:
 		anim.play('explosion')
 		explosion_played=true
-	
-
-
+		$"../AudioStreamPlayer".stop()
+	if timer>7.0 and explosion_played:
+		print('game voer')
+		main.game_over()
+	if game_timer > 42 and not explosion_played:
+		print('aldjajdjlaj')
+		main.ending1()
+		#pass
 		
+		
+		
+		#print('a')
+	

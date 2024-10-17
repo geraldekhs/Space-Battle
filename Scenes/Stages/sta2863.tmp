@@ -974,7 +974,6 @@ volume_db = 24.0
 pitch_scale = 1.58
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-visible = false
 offset_left = 252.0
 offset_top = 480.0
 offset_right = 1776.0

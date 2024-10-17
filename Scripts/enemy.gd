@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+@onready var blackhole = get_node("/root/black_hole")
 var big_asteroid = preload('res://Assets/Asteroids/big-b.png')
 var med_asteroid = preload('res://Assets/Asteroids/med-b.png')
 var texture_array = []

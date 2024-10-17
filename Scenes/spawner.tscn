@@ -49,6 +49,6 @@ text = "[center][pulse color=#FF0000 freq=2.0]APPROACHING ASTEROID FIELD[/pulse]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_60d2k")
-volume_db = 15.516
+volume_db = 15.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

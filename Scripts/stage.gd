@@ -21,13 +21,18 @@ func _on_timer_timeout() -> void:
 	if timer>30:
 		add_child(blackhole)
 		blackhole.visible=true
+		
+
 
 func _on_player_velo(velocity_x: Variant) -> void:
+		
+	
 	if get_node_or_null("BlackHole2DNode"):
 		if $BlackHole2DNode.visible == true:
 			#if timer>3:
-			if timer<35:
-				$BlackHole2DNode.move_local_x(-4-velocity_x/200)
+			if timer>30:
+				$BlackHole2DNode.move_local_x(-4)
+				$player.move_local_x(1)
 			#
 		#if timer >10:
 			#$BlackHole2DNode.move_local_x(-velocity_x/50)

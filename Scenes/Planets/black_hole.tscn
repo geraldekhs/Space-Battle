@@ -574,8 +574,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_njh2e"]
-radius = 1158.0
-height = 2730.0
+radius = 569.0
+height = 2548.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_sojhf")
@@ -595,4 +595,5 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 2)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_njh2e")
