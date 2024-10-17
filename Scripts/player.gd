@@ -91,6 +91,7 @@ func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 	print(body_rid)
 	
 	if int(str(body_rid)) < 10000000000000:
+		Globals.in_blackhole = true
 		slow = true
 		inside_area = true
 		$"../AudioStreamPlayer".play()
@@ -111,6 +112,7 @@ func _on_timer_timeout() -> void:
 		anim.play('explosion')
 		explosion_played=true
 		$"../AudioStreamPlayer".stop()
+		Globals.in_blackhole = false
 	if timer>7.0 and explosion_played:
 		print('game voer')
 		main.game_over()

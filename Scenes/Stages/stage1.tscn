@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://cbgwiw1sltog0"]
+[gd_scene load_steps=143 format=3 uid="uid://cbgwiw1sltog0"]
 
 [ext_resource type="PackedScene" uid="uid://cx40vgtenheaa" path="res://Scenes/Characters/player.tscn" id="1_8daux"]
 [ext_resource type="Script" path="res://Scripts/stage.gd" id="1_m3r0l"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://8ftvcws01ou3" path="res://Scenes/Planets/black_hole.tscn" id="9_brhf8"]
 [ext_resource type="AudioStream" uid="uid://cc31ifim3lqia" path="res://Sounds/Submarine Creaking.mp3" id="10_pdyot"]
 [ext_resource type="FontFile" uid="uid://df4diksoae2qh" path="res://Fonts/C&C Red Alert [INET].ttf" id="11_s6f8t"]
+[ext_resource type="Script" path="res://Scenes/Characters/shake.gd" id="12_hevg7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pkofw"]
 shader = ExtResource("4_hlaf6")
@@ -984,6 +985,10 @@ theme_override_font_sizes/normal_font_size = 200
 bbcode_enabled = true
 text = "[wave amp=50.0] To be continued... "
 fit_content = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("12_hevg7")
 
 [connection signal="child_entered_tree" from="." to="BlackHole2DNode" method="_on_node_2d_child_entered_tree"]
 [connection signal="velo" from="player" to="." method="_on_player_velo"]

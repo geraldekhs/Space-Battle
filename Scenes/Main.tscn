@@ -80,8 +80,8 @@ bbcode_enabled = true
 text = "[wave amp=50.0][center]Loading..."
 fit_content = true
 
-[connection signal="pressed" from="Control/try_again_button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/try_again_button" to="." method="_on_try_again_button_pressed"]
+[connection signal="pressed" from="Control/try_again_button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="start" from="start_menu" to="." method="_on_control_start"]
 [connection signal="start" from="intro_dialogue" to="." method="_on_intro_dialogue_start"]

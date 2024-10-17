@@ -13,6 +13,7 @@ uniform float large_stars = 8.0; // Number of large stars. Rows for horizontally
 uniform float large_stars_far_size : hint_range(0.1, 1.0, 0.1) = 0.5;
 uniform float large_stars_near_size : hint_range(0.1, 1.0, 0.1) = 1.0;
 
+
 // Replace the below references to 'source_color' with 'hint_color' if you are using a version of Godot before 4.
 uniform vec4 far_stars_color : source_color = vec4(0.50, 0.0, 1.0, 1.0);
 uniform vec4 near_stars_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
