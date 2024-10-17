@@ -94,7 +94,7 @@ theme_override_colors/font_selected_color = Color(0.129558, 0.129558, 0.129558, 
 theme_override_fonts/normal_font = ExtResource("2_l1ssy")
 theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
-text = "[center]SPACE BATTLE!!"
+text = "[center] A SPACE VOYAGE"
 fit_content = true
 scroll_following = true
 

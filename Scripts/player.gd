@@ -114,7 +114,7 @@ func _on_timer_timeout() -> void:
 	if timer>7.0 and explosion_played:
 		print('game voer')
 		main.game_over()
-	if game_timer > 42 and not explosion_played:
+	if game_timer > 45 and not explosion_played:
 		print('aldjajdjlaj')
 		main.ending1()
 		#pass

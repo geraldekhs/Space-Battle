@@ -10,6 +10,7 @@ extends Node
 @onready var stage2=$stage2
 @onready var new_planet = $CharacterBody2D
 @onready var try_again_button = $Control/try_again_button
+@onready var hint = $RichTextLabel2
 #@onready var t = stage1.instance()
 
 
@@ -54,6 +55,7 @@ func _process(delta: float) -> void:
 func game_over():
 	print('game over received')
 	try_again_button.visible = true
+	hint.visible=true
 	
 	pass
 	#stops the spawner when game over
@@ -93,6 +95,7 @@ func _on_intro_dialogue_start() -> void:
 	
 func ending1() -> void:
 	$RichTextLabel.visible=true
+	#hint.visible=true
 	add_child(new_planet)
 #func start_stage2() -> void:
 	#add_child(stage2)

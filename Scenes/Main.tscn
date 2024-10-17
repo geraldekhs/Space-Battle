@@ -11,6 +11,18 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_1tr5p")
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 64.0
+offset_top = 969.0
+offset_right = 883.0
+offset_bottom = 1045.0
+theme_override_fonts/normal_font = ExtResource("6_0rppk")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[tornado radius=5] Hint: think out of the box!"
+fit_content = true
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0

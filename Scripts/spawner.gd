@@ -46,9 +46,9 @@ func _on_timer_timeout() -> void:
 		$AudioStreamPlayer.play()
 	if asteroid_field_delay>23:
 		$RichTextLabel2.visible = false
-		spawn_rate = 15;
+		spawn_rate = 18;
 		$AudioStreamPlayer.stop()
-	if asteroids_stop>30:
+	if asteroids_stop>35:
 		spawn_rate=0
 		goto_stage2.emit()
 		#emit_signal('goto_stage2')
